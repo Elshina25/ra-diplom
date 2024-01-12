@@ -24,7 +24,7 @@ function Item({ item }) {
     const toCard = {
       id: item.id,
       title: item.title,
-      size: item.sizes.size,
+      size: size,
       count: count,
       price: item.price,
     };
@@ -41,7 +41,7 @@ function Item({ item }) {
         }
         key={index}
         data-id={index}
-        onClick={handlerClickSize}
+        onClick={() => handlerClickSize(index)}
       >
         {e.size}
       </span>
@@ -114,7 +114,7 @@ function Item({ item }) {
           {countSizes > 0 && (
             <button
               className="btn btn-danger btn-block btn-lg"
-              disabled={count === 0 || size === null ? false : true}
+              disabled={count === 0 || size === null}
               onClick={handlerClickCart}
             >
               В корзину
